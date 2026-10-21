@@ -12,6 +12,14 @@
     </el-watermark>
     <!-- 关闭水印 -->
     <router-view v-else />
+    <a
+      class="icp-footer"
+      href="https://beian.miit.gov.cn/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      备案号：鄂ICP备2025091005号-1
+    </a>
   </el-config-provider>
   <kf v-if="showKfComponent" />
 </template>
@@ -34,6 +42,12 @@ const watermarkEnabled = computed(() => settingsStore.watermarkEnabled);
 
 const route = useRoute();
 const showKfComponent = ref(false);
+const isDarkPage = computed(
+  () =>
+    route.path === "/login" ||
+    route.path === "/adminLogin" ||
+    route.path.startsWith("/emailReset")
+);
 
 const screenWidth = ref(window.innerWidth);
 const isMobile = computed(() => screenWidth.value <= 768);
@@ -72,3 +86,28 @@ const fontColor = computed(() => {
     : "rgba(0, 0, 0, .15)";
 });
 </script>
+
+<style lang="scss">
+.icp-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  height: 28px;
+  font-size: 12px;
+  line-height: 28px;
+  color: var(--el-text-color-secondary);
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.app-main {
+  box-sizing: border-box;
+  padding-bottom: 28px;
+}
+</style>

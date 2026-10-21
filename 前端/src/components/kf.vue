@@ -120,7 +120,7 @@ onMounted(() => {
   display: block;
   width: 24px;
   height: 24px;
-  background: url("http://www.jisufahuo.com/static/common/img/close_im.png")
+  background: url("@/assets/images/close_im.png")
     no-repeat left top;
 }
 .main-im .close-im a:hover {
@@ -130,7 +130,7 @@ onMounted(() => {
   cursor: pointer;
   width: 40px;
   height: 133px;
-  background: url("http://www.jisufahuo.com/static/common/img/open_im.png")
+  background: url("@/assets/images/open_im.png")
     no-repeat left top;
 }
 </style>
